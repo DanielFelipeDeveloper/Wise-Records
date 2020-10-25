@@ -1,0 +1,71 @@
+.content-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 1100px;
+  padding: 0px 15px;
+  height: 4.25rem;
+}
+
+header .logo {
+  font-size: 24px;
+  font-family: 'Metal Mania', cursive;
+  text-decoration: none;
+  color: #FFF;
+}
+
+header .menu ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+header .menu ul li {
+  display: flex;
+  align-items: center;
+  height: 68px;
+  box-sizing: border-box;
+}
+
+header .menu ul li a{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: #FFF;
+  margin: 10px 15px;
+  position: relative;
+}
+
+header .menu ul li a::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: #6900ff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+header .menu ul li a:hover::after {
+  width: 100%;
+}
+
+header .menu ul li a.icon:hover::after {
+  width: 110%;
+}
+
+header .menu ul li a.icon-user:hover::after {
+  width: 115%;
+  left: -2px;
+}
