@@ -1,0 +1,110 @@
+.cards-container {
+  display: flex;
+  grid-template-columns: 16rem;
+  margin: 100px auto 0 auto;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+
+  width: 1100px;
+}
+
+.card-img {
+  position: relative;
+  height: 240px;
+}
+
+.card-img img{
+  width: 240px;
+  height: 240px;
+  border-radius: 4px;
+
+  transition: opacity .2s;
+}
+
+.card-img .btn-player {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.card-img .btn-player:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.card-img .btn-player button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 90px;
+  left: 90px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #00000080;
+  border: 3px solid #fff;
+  outline: 0;
+
+  transition: .2s;
+}
+
+.card-img .btn-player button:hover {
+  transform: scale(1.2);
+}
+
+.card-description {
+  display: flex;
+  padding: 2px 4px;
+  
+  border-radius: 4px;
+ 
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.card-description span{
+  color: #fff;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.card-description p {
+  color: #9f9f9f;
+  font-size: 13px;
+  line-height: 23px;
+  font-weight: 400;
+}
+
+.card-description button {
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 4px 8px;
+  margin-top: calc(33% - 5px );
+
+  background: #6900ff;
+  border: 0;
+  border-radius: 4px;
+
+  transition: .2s;
+}
+
+.card-description button:hover {
+  background-color: #5c00dd;
+}
+
+.card-description button span {
+  margin-left: 8px;
+  font-size: 14px;
+}
