@@ -1,18 +1,20 @@
 .cards-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin: 50px auto 0 auto;
+  margin: 25px auto 200px auto;
   grid-gap: 1.5rem;
   justify-content: center;
   align-items: center;
 
-  width: 1075px;
+  padding: 25px;
+
+  width: 1100px;
 }
 
 .title {
-  width: 1075px;
-  margin: 15px auto 0 auto;
-  padding: 20px;
+  width: 1100px;
+  margin: 100px auto 0 auto;
+  padding: 10px;
   text-align: center;
   color: #6900ff;
 

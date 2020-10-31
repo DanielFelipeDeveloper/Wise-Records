@@ -1,0 +1,61 @@
+.footer-audio {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  background-color: #0d0d0d;
+  padding: 16px 20px;
+  border-top: 2px solid #222;
+}
+
+.footer-audio .track-info {
+  display: flex;
+  width: 400px;
+}
+
+.footer-audio .footer-img {
+  width: 80px;
+  height: 80px;
+}
+
+.footer-audio .footer-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.description {
+  padding: 10px;
+}
+
+.description p:first-child {
+  text-transform: none;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 21px;
+  line-height: 31px;
+  color: #6900ff;
+}
+
+.description p {
+  font-size: 18px;
+  line-height: 28px;
+  font-family: "Metal Mania", cursive;
+  color: #c1b9ff;
+}
+
+.footer-player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.footer-player .play {
+  border: 1px solid #6900ff;
+  border-radius: 50%;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+}

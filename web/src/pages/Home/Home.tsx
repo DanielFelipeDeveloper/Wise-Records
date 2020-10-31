@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from '../../components/Header/Header';
 import Card from '../../components/Card/Card';
+import Footer from '../../components/Footer/Footer';
 
 import './styles.css'
 
@@ -28,6 +29,8 @@ const Home: React.FC = () => {
         <Card />
         <Card />
       </div>
+
+      <Footer />
     </>
   );
 }
