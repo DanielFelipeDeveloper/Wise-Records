@@ -1,7 +1,8 @@
 .footer-audio {
   position: fixed;
   display: flex;
-  align-items: center;
+  align-items: left;
+  justify-content: left;
   bottom: 0;
   width: 100%;
   background-color: #0d0d0d;
@@ -11,12 +12,12 @@
 
 .footer-audio .track-info {
   display: flex;
-  width: 400px;
+  width: 300px;
 }
 
 .footer-audio .footer-img {
-  width: 80px;
-  height: 80px;
+  width: 61px;
+  height: 61px;
 }
 
 .footer-audio .footer-img img {
@@ -26,25 +27,28 @@
 }
 
 .description {
-  padding: 10px;
+  padding: 0 10px;
 }
 
 .description p:first-child {
   text-transform: none;
   font-family: "Nunito Sans", sans-serif;
-  font-size: 21px;
-  line-height: 31px;
+  font-weight: bold;
+  margin-top: 5px;
+  font-size: 14px;
+  line-height: 24px;
   color: #6900ff;
 }
 
 .description p {
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 14px;
+  line-height: 24px;
   font-family: "Metal Mania", cursive;
   color: #c1b9ff;
 }
 
-.footer-player {
+.footer-player,
+.progress {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,10 +56,83 @@
 }
 
 .footer-player .play {
-  border: 1px solid #6900ff;
+  border: 2px solid #6900ff;
   border-radius: 50%;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 5px;
-  padding-bottom: 10px;
+  width: 39.85px;
+  height: 39.85px;
+  position: relative;
+}
+
+.footer-player .player {
+  cursor: pointer;
+  position: absolute;
+  top: 16%;
+  left: 20%;
+}
+
+.prev,
+.next {
+  margin: 3px;
+  transition: .3s;
+}
+
+.prev:hover,
+.next:hover {
+  cursor: pointer;
+  color: #ABABAB;
+}
+
+.progress {
+  width: 885px;
+  margin-left: 10px;
+}
+
+.progress #prgbar {
+  margin: 0 10px 0 10px;
+  width: 100%;
+}
+
+.progress span {
+  color: #ABABAB;
+  font-size: 13px;
+}
+
+.footer-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-right button {
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 7px 13px;
+
+  background: #6900ff;
+  border: 0;
+  border-radius: 4px;
+
+  margin: 0 20px;
+
+  transition: 0.2s;
+}
+
+.footer-right button:hover {
+  background-color: #5c00dd;
+}
+
+.footer-right button span {
+  color: #fff;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.footer-right .sound,
+.footer-right .options {
+  cursor: pointer;
+  margin: 10px;
 }

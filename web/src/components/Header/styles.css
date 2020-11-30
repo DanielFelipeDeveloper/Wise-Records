@@ -16,13 +16,12 @@ header {
 
   background-color: black;
 
-  width: 1350px;
-  padding: 0px 15px;
+  width: 1100px;
   height: 68px;
 }
 
 header .logo {
-  font-size: 32px;
+  font-size: 24px;
   font-family: "Metal Mania", cursive;
   text-decoration: none;
   color: #fff;
@@ -45,7 +44,7 @@ header .menu ul li a {
   height: 100%;
   display: flex;
   align-items: center;
-  font-size: 20px;
+  font-size: 16px;
   text-decoration: none;
   color: #fff;
   margin: 10px 15px;

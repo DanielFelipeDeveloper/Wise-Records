@@ -2,6 +2,10 @@ import React from 'react'
 
 import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
 import { ImPlay3 } from 'react-icons/im'
+import { AiFillSound } from 'react-icons/ai'
+import { TiThMenu } from 'react-icons/ti'
+import { FaShoppingCart } from 'react-icons/fa';
+
 import './styles.css'
 
 export default function Footer() {
@@ -22,16 +26,26 @@ export default function Footer() {
       </div>
   
       <div className="footer-player">
-        <MdSkipPrevious fontSize={30}/>
-        <ImPlay3 fontSize={60}  className="play"/>
-        <MdSkipNext fontSize={30}/>
-        <span className="current-time">
-          00:00
+        <MdSkipPrevious className="prev" fontSize={30}/>
+        <span className="play">
+          <ImPlay3 className="player" fontSize={25}/>
         </span>
+        <MdSkipNext className="next" fontSize={30}/>
+      </div>
+
+      <div className="progress">
+        <span className="current-time">00:00</span>
+        <input type="range" name="progressBar" id="prgbar"/>
+        <span className="total-time">03:25</span>
       </div>
 
       <div className="footer-right">
-        <p>Volume controls</p>
+        <button>
+          <FaShoppingCart color="#fff"fontSize={15}/>
+          <span>Buy</span>
+        </button>
+        <AiFillSound className="sound" color="#FFF" fontSize={21}/>
+        <TiThMenu className="options" color="#FFF" fontSize={21}/>
       </div>
     </div>
   )
