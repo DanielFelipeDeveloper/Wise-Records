@@ -6,22 +6,28 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('users')
-class User {
+@Entity('beats')
+class Beat {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @Column()
+  image: string;
+
+  @Column()
+  audio: string;
 
   @Column()
   name: string;
 
   @Column()
-  email: string;
+  style: string;
 
   @Column()
-  password: string;
+  bpm: string;
 
   @Column()
-  avatar: string;
+  price: number;
 
   @CreateDateColumn()
   created_at: Date;
@@ -30,4 +36,4 @@ class User {
   updated_at: Date;
 }
 
-export default User;
+export default Beat;
