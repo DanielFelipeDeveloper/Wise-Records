@@ -4,7 +4,12 @@ import multer from 'multer';
 
 export default {
   storage: multer.diskStorage({
-    destination: path.resolve(__dirname, '..', '..', 'tmp'),
+    destination: (request, file, callback) => {
+      callback(
+        null,
+        path.resolve(__dirname, '..', '..', 'tmp', file.fieldname),
+      );
+    },
     filename(request, file, callback) {
       const fileHash = crypto.randomBytes(10).toString('hex');
 

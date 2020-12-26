@@ -1,4 +1,6 @@
 node_modules/
 
-tmp/*
-!tmp/.gitkeep
+tmp/audio/*
+tmp/image/*
+!tmp/audio/.gitkeep
+!tmp/image/.gitkeep
