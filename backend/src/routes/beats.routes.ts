@@ -19,13 +19,13 @@ beatsRouter.post('/', upload.any(), async (request, response) => {
     const requestFiles = request.files as Express.Multer.File[];
 
     const filesPath = requestFiles.map(file => {
-      return { field: file.fieldname, path: file.filename };
+      return { type: file.mimetype, path: file.filename };
     });
 
     filesPath.filter(file => {
-      if (file.field === 'image') {
+      if (file.type.includes('image')) {
         image = file.path;
-      } else if (file.field === 'audio') {
+      } else if (file.type.includes('audio')) {
         audio = file.path;
       }
       return true;
