@@ -27,10 +27,11 @@ export default function ensureAuthenticated(
 
     request.user = {
       id: sub,
+      roles: 'basic',
     };
 
     return next();
   } catch (err) {
-    throw new Error('Invalid JWT Token!');
+    throw new Error(`Invalid JWT Token! ${err.message}`);
   }
 }

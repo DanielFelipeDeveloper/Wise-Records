@@ -23,6 +23,9 @@ class User {
   @Column()
   avatar: string;
 
+  @Column()
+  roles: string;
+
   @CreateDateColumn()
   created_at: Date;
 
