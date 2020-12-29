@@ -3,5 +3,7 @@ node_modules/
 
 tmp/audio/*
 tmp/image/*
+tmp/avatar/*
 !tmp/audio/.gitkeep
 !tmp/image/.gitkeep
+!tmp/avatar/.gitkeep

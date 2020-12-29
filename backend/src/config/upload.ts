@@ -2,7 +2,11 @@ import path from 'path';
 import crypto from 'crypto';
 import multer from 'multer';
 
+const tmpAvatarFolder = path.resolve(__dirname, '..', '..', 'tmp', 'avatar');
+
 export default {
+  directory: tmpAvatarFolder,
+
   storage: multer.diskStorage({
     destination: (request, file, callback) => {
       callback(
