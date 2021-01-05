@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const HeaderContent = styled.div`
   width: 100%;
@@ -24,14 +25,41 @@ export const HeaderContent = styled.div`
   }
 `;
 
+export const LinkAndMenu = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    color: #fff;
+    display: none;
+  }
+
+  @media (max-width: 575px) {
+    svg {
+      display: block;
+      cursor: pointer;
+      transition: color 0.2s;
+
+      &:hover {
+        color: ${shade(0.2, '#6900ff')};
+      }
+    }
+  }
+`;
+
 export const Logo = styled.a`
   font-size: 24px;
   font-family: 'Metal Mania', cursive;
   text-decoration: none;
   color: #fff;
+
+  @media (max-width: 575px) {
+    margin-left: 10px;
+  }
 `;
 
-export const Items = styled.div`
+export const Items = styled.div<{ displayHidden: boolean }>`
   ul {
     display: flex;
     align-items: center;
@@ -59,5 +87,11 @@ export const Items = styled.div`
 
   ul li:hover {
     border-bottom: 2px solid #6900ff;
+  }
+
+  @media (max-width: 575px) {
+    ul li {
+      display: ${(props) => (props.displayHidden ? 'none' : 'false')};
+    }
   }
 `;
