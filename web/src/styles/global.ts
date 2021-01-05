@@ -24,4 +24,17 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #6900ff, #8926d4);
+    border-radius: 3px;
+  }
 `;

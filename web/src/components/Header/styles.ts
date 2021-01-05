@@ -40,9 +40,10 @@ export const LinkAndMenu = styled.div`
       display: block;
       cursor: pointer;
       transition: color 0.2s;
+      margin-bottom: 2px;
 
       &:hover {
-        color: ${shade(0.2, '#6900ff')};
+        color: ${shade(0.2, '#fff')};
       }
     }
   }

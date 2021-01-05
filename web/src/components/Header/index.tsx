@@ -11,7 +11,7 @@ const Header: React.FC = () => {
         <header>
           <LinkAndMenu>
             <HiMenu fontSize={36} />
-            <Logo href="/">D.Wise Beats</Logo>
+            <Logo href="/">D.Wise Records</Logo>
           </LinkAndMenu>
 
           <Items displayHidden>
