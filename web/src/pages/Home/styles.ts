@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Cards = styled.div`
   max-width: 1100px;
   width: 100%;
-  margin: 25px auto;
+  margin: 25px auto 100px auto;
 
   text-align: center;
 

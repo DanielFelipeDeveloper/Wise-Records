@@ -1,3 +1,4 @@
+import { shade } from 'polished';
 import styled from 'styled-components';
 
 export const DivCard = styled.div`
@@ -33,14 +34,18 @@ export const BtnPlay = styled.div`
     background-color: rgba(0, 0, 0, 0.2);
   }
 
+  button svg {
+    margin-left: 6%;
+  }
+
   button {
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 90px;
-    left: 90px;
+    top: 38%;
+    left: 38%;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -98,7 +103,7 @@ export const Description = styled.div`
     transition: 0.2s;
 
     &:hover {
-      background-color: #5c00dd;
+      background-color: ${shade(0.3, '#6900ff')};
     }
 
     span {
