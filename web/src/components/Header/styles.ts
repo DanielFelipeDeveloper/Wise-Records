@@ -6,6 +6,7 @@ export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   header {
     display: flex;
@@ -71,11 +72,13 @@ export const Items = styled.div<{ displayHidden: boolean }>`
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    border: 2px solid black;
+    border: 2px solid transparent;
     transition: 0.4s;
   }
 
-  ul li a {
+  ul li a,
+  svg {
+    cursor: pointer;
     height: 100%;
     display: flex;
     align-items: center;
@@ -84,6 +87,11 @@ export const Items = styled.div<{ displayHidden: boolean }>`
     text-decoration: none;
     color: #fff;
     margin: 10px 12px;
+  }
+
+  ul li svg {
+    font-size: 21px;
+    padding-bottom: 1px;
   }
 
   ul li:hover {

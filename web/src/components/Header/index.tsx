@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { FaShoppingCart, FaUserAlt } from 'react-icons/fa';
 import { HiMenu } from 'react-icons/hi';
+import LoginModal from '../LoginModal';
 import { LinkAndMenu, HeaderContent, Items, Logo } from './styles';
 
 const Header: React.FC = () => {
+  const [showModal, setShowModal] = useState<boolean>(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <>
       <HeaderContent>
@@ -23,25 +30,22 @@ const Header: React.FC = () => {
                 <a href="/">Mix/Master</a>
               </li>
               <li>
-                <a href="/">Sign Up</a>
+                <a href="/">Cadastrar</a>
               </li>
               <Items displayHidden={false}>
                 <ul>
                   <li>
-                    <a href="/">
-                      <FaShoppingCart fontSize={21} />
-                    </a>
+                    <FaShoppingCart />
                   </li>
                   <li>
-                    <a href="/">
-                      <FaUserAlt fontSize={21} />
-                    </a>
+                    <FaUserAlt onClick={toggleModal} />
                   </li>
                 </ul>
               </Items>
             </ul>
           </Items>
         </header>
+        <LoginModal isOpen={showModal} onClose={toggleModal} />
       </HeaderContent>
     </>
   );
