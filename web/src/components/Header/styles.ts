@@ -13,7 +13,7 @@ export const HeaderContent = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(2, 2, 2, 0.9);
 
     position: fixed;
     top: 0;

@@ -11,7 +11,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #000;
+    background: rgba(2, 2, 2);
     -webkit-font-smoothing: antialiased!important;
     text-rendering: optimizeLegibility!important;
   }

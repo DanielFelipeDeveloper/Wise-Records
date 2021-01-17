@@ -1,27 +1,51 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
 
-export const PlayerTrack = styled.div`
+export const PlayerContainer = styled.div`
+  position: fixed;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 100%;
-  height: 12.5%;
+  height: 12vh;
+
   background: #0d0d0d;
+
   border-top: 1px solid #222;
 
-  position: fixed;
-  bottom: 0;
-  right: 0;
+  @media (max-width: 900px) {
+    height: 14vh;
+  }
+`;
 
-  padding: 16px 20px;
+export const PlayerTrack = styled.div`
+  position: absolute;
+  min-width: 100%;
+  padding: 12px 20px;
+  background: #0d0d0d;
 
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  @media (max-width: 900px) {
+    justify-content: space-between;
+    height: 12.5%;
+    padding: 32px 16px;
+
+    top: 38px;
+  }
 `;
 
 export const TrackInfo = styled.div`
   display: flex;
   align-items: center;
 
-  width: 291px;
+  max-width: 291px;
 
   img {
     width: 61px;
@@ -34,6 +58,14 @@ export const TrackInfo = styled.div`
     display: flex;
     flex-direction: column;
   }
+
+  @media (max-width: 900px) {
+    height: 40px;
+
+    img {
+      width: 40px;
+    }
+  }
 `;
 
 export const Link = styled.a<{ color: string }>`
@@ -41,12 +73,14 @@ export const Link = styled.a<{ color: string }>`
   font-weight: bold;
   text-decoration: none;
   color: ${(props) => props.color};
+
+  @media (max-width: 900px) {
+    display: ${(props) => (props.color === '#6900ff' ? 'none' : 'block')};
+  }
 `;
 
 export const PlayerControls = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
 
   svg {
     margin: 5px;
@@ -86,13 +120,18 @@ export const PlayerControls = styled.div`
       color: ${shade(0.1, '#fff')};
     }
   }
+
+  @media (max-width: 900px) {
+    justify-content: center;
+    min-width: 50%;
+  }
 `;
 
 export const ProgressWrapper = styled.div`
   display: flex;
   align-items: center;
 
-  width: 58%;
+  width: 70%;
 
   span {
     color: #ababab;
@@ -105,12 +144,20 @@ export const ProgressWrapper = styled.div`
     width: 100%;
     margin: 10px;
   }
+
+  @media (max-width: 900px) {
+    position: absolute;
+    top: -30px;
+    max-width: 100%;
+    min-width: 93%;
+  }
 `;
 
 export const FooterRight = styled.div`
   display: flex;
   align-items: center;
 
+  max-width: 100%;
   a {
     text-decoration: none;
     display: flex;
@@ -126,7 +173,7 @@ export const FooterRight = styled.div`
 
     background: #6900ff;
 
-    margin: 20px;
+    margin: 10px;
 
     transition: 0.2s;
 
@@ -148,5 +195,21 @@ export const FooterRight = styled.div`
   div {
     width: 100%;
     align-items: right;
+  }
+
+  @media (max-width: 900px) {
+    .sound {
+      display: none;
+    }
+
+    .options {
+      margin-right: 30px;
+    }
+  }
+
+  @media (max-width: 465px) {
+    a {
+      margin-left: -15px;
+    }
   }
 `;

@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 
-import { FiFacebook, FiInstagram } from 'react-icons/fi';
+import { FiFacebook } from 'react-icons/fi';
 import { MdClose } from 'react-icons/md';
+import { AiFillGoogleCircle } from 'react-icons/ai';
 
 import {
   Modal,
@@ -59,8 +60,8 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
                 <span>Facebook</span>
               </a>
               <a href="/">
-                <FiInstagram />
-                <span>Instagram</span>
+                <AiFillGoogleCircle fontSize={22} />
+                <span>Google</span>
               </a>
             </SocialButtonsDiv>
             <p>Novo por aqui?</p>
