@@ -77,6 +77,7 @@ export const Items = styled.div<{ displayHidden: boolean }>`
   }
 
   ul li a,
+  ul li button,
   svg {
     cursor: pointer;
     height: 100%;
@@ -87,6 +88,11 @@ export const Items = styled.div<{ displayHidden: boolean }>`
     text-decoration: none;
     color: #fff;
     margin: 10px 12px;
+  }
+
+  ul li button {
+    background: 0;
+    border: 0;
   }
 
   ul li svg {

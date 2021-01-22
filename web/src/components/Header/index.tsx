@@ -2,14 +2,21 @@ import React, { useState } from 'react';
 
 import { FaShoppingCart, FaUserAlt } from 'react-icons/fa';
 import { HiMenu } from 'react-icons/hi';
-import LoginModal from '../LoginModal';
 import { LinkAndMenu, HeaderContent, Items, Logo } from './styles';
 
-const Header: React.FC = () => {
-  const [showModal, setShowModal] = useState<boolean>(false);
+import LoginModal from '../LoginModal';
+import SignUpModal from '../SignUpModal';
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
+const Header: React.FC = () => {
+  const [showLoginModal, setshowLoginModal] = useState<boolean>(false);
+  const [showSignUpModal, setshowSignUpModal] = useState<boolean>(false);
+
+  const toggleLoginModal = () => {
+    setshowLoginModal(!showLoginModal);
+  };
+
+  const toggleSignUpModal = () => {
+    setshowSignUpModal(!showSignUpModal);
   };
 
   return (
@@ -30,7 +37,9 @@ const Header: React.FC = () => {
                 <a href="/">Mix/Master</a>
               </li>
               <li>
-                <a href="/">Cadastrar</a>
+                <button type="button" onClick={toggleSignUpModal}>
+                  Cadastrar
+                </button>
               </li>
               <Items displayHidden={false}>
                 <ul>
@@ -38,14 +47,15 @@ const Header: React.FC = () => {
                     <FaShoppingCart />
                   </li>
                   <li>
-                    <FaUserAlt onClick={toggleModal} />
+                    <FaUserAlt onClick={toggleLoginModal} />
                   </li>
                 </ul>
               </Items>
             </ul>
           </Items>
         </header>
-        <LoginModal isOpen={showModal} onClose={toggleModal} />
+        <LoginModal isOpen={showLoginModal} onClose={toggleLoginModal} />
+        <SignUpModal isOpen={showSignUpModal} onClose={toggleSignUpModal} />
       </HeaderContent>
     </>
   );
