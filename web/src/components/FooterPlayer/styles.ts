@@ -45,7 +45,7 @@ export const TrackInfo = styled.div`
   display: flex;
   align-items: center;
 
-  max-width: 291px;
+  min-width: 15%;
 
   img {
     width: 61px;

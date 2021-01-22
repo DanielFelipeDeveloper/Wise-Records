@@ -11,6 +11,8 @@ export const Modal = styled.div`
   justify-content: center;
   width: 100vw;
   height: 100vh;
+
+  display: block !important;
 `;
 
 export const ModalOverlay = styled.div`
@@ -20,11 +22,16 @@ export const ModalOverlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
+
+  overflow-y: initial !important;
 `;
 
 export const ModalContainer = styled.div`
   position: relative;
-  top: 59px;
+  top: 45px;
+
+  height: 90vh;
+  overflow-y: auto;
 
   max-width: 500px;
   margin: 0 auto;
