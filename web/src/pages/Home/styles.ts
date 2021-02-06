@@ -13,7 +13,7 @@ export const Cards = styled.div`
 `;
 
 export const Title = styled.div`
-  width: 100%;
+  max-width: 1050px;
   margin: 100px auto 0 auto;
   padding: 10px;
   text-align: center;
