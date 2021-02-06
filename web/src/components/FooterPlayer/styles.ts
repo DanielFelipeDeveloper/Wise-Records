@@ -2,12 +2,11 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const PlayerContainer = styled.div`
-  position: relative;
   position: fixed;
   left: 0;
   bottom: 0;
 
-  padding: 10px 20px 10px;
+  padding: 5px 20px 20px;
   width: 100%;
   min-height: 110px;
 
@@ -19,10 +18,25 @@ export const PlayerContainer = styled.div`
   border-top: 1px solid #222;
   background: #0d0d0d;
 
+  @media (min-width: 900px) {
+    min-height: 95px;
+    max-height: 95px;
+  }
+
+  .progress-wrapper.mobile {
+    display: none;
+
+    @media (max-width: 900px) {
+      display: flex;
+      margin-bottom: 10px;
+    }
+  }
+
   .progress-wrapper {
-    margin-bottom: 10px;
     width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
 
     span {
       color: #ababab;
@@ -33,6 +47,9 @@ export const PlayerContainer = styled.div`
     input[type='range'] {
       width: 100%;
       margin: 0 15px;
+    }
+    @media (max-width: 900px) {
+      display: none;
     }
   }
 `;
@@ -50,10 +67,9 @@ export const Player = styled.div`
   .track-info {
     margin-top: 5px;
     display: flex;
-    justify-content: center;
     align-items: center;
 
-    .img {
+    .img-and-description {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -78,16 +94,26 @@ export const Player = styled.div`
         font-weight: 500;
         font-size: 15px;
 
-        position: absolute;
-        left: 47.6%;
-        bottom: 57px;
-        transform: translateX(-50%);
-        max-width: 100%;
+        @media (max-width: 900px) {
+          position: absolute;
+          left: 47.6%;
+          bottom: 68px;
+          transform: translateX(-50%);
+          max-width: 100%;
+        }
 
         @media (max-width: 350px) {
           width: 100%;
           left: 77%;
         }
+      }
+    }
+
+    @media (min-width: 900px) {
+      min-width: 20%;
+
+      .img-and-description img {
+        width: 61px;
       }
     }
   }

@@ -10,7 +10,7 @@ import { PlayerContainer, Player } from './styles';
 const FooterPlayer: React.FC = () => {
   return (
     <PlayerContainer>
-      <div className="progress-wrapper">
+      <div className="progress-wrapper mobile">
         <span>00:01</span>
         <input
           type="range"
@@ -25,7 +25,7 @@ const FooterPlayer: React.FC = () => {
       <Player>
         <div className="player-bottom">
           <div className="track-info">
-            <div className="img">
+            <div className="img-and-description">
               <img
                 src="https://cdn.airbit.com/artwork/2f20a1eba7d27ae74f531de136956368@300x.jpg"
                 alt="cardImage"
@@ -44,6 +44,18 @@ const FooterPlayer: React.FC = () => {
               </span>
               <BiSkipNext fontSize={30} />
             </div>
+          </div>
+          <div className="progress-wrapper">
+            <span>00:01</span>
+            <input
+              type="range"
+              name="progress_bar"
+              min="0"
+              max="100"
+              step="1"
+              value="0"
+            />
+            <span>02:40</span>
           </div>
           <div className="footer-right">
             <a href="/">
