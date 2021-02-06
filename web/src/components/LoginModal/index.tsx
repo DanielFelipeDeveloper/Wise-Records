@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-import { FiFacebook } from 'react-icons/fi';
+import { FiFacebook, FiLock, FiUser } from 'react-icons/fi';
 import { MdClose } from 'react-icons/md';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 
@@ -15,6 +15,7 @@ import {
   SocialButtonsDiv,
   CloseButton,
 } from './styles';
+import Input from '../Input';
 
 interface ModalProps {
   isOpen: boolean;
@@ -39,8 +40,17 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
           </CloseButton>
           <h1>Login</h1>
           <Form>
-            <input type="text" placeholder="Nome de usuário ou Email" />
-            <input type="password" placeholder="Senha" />
+            <Input
+              name="name"
+              icon={FiUser}
+              placeholder="Nome de usuário ou Email"
+            />
+            <Input
+              name="password"
+              icon={FiLock}
+              type="password"
+              placeholder="Senha"
+            />
             <CheckBoxesDiv>
               <div>
                 <label htmlFor="check">

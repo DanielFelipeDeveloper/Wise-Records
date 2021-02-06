@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-import { FiFacebook } from 'react-icons/fi';
+import { FiFacebook, FiLock, FiMail, FiUser } from 'react-icons/fi';
 import { MdClose } from 'react-icons/md';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 
@@ -14,6 +14,7 @@ import {
   SocialButtonsDiv,
   CloseButton,
 } from './styles';
+import Input from '../Input';
 
 interface ModalProps {
   isOpen: boolean;
@@ -38,9 +39,14 @@ const SignUpModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
           </CloseButton>
           <h1>Cadastrar Conta</h1>
           <Form>
-            <input type="text" placeholder="Nome de usuário" />
-            <input type="text" placeholder="Email" />
-            <input type="password" placeholder="Senha" />
+            <Input name="name" icon={FiUser} placeholder="Nome de usuário" />
+            <Input name="email" icon={FiMail} placeholder="Email" />
+            <Input
+              name="password"
+              icon={FiLock}
+              type="password"
+              placeholder="Senha"
+            />
             <p className="terms">
               Ao se cadastrar, você concorda automaticamente com nossos
               <a href="/">Termos e Condições e Acordo de Privacidade</a>

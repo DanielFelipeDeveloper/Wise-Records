@@ -74,41 +74,6 @@ export const Form = styled.form`
     color: #815cff;
     text-decoration: none;
   }
-
-  input {
-    width: 100%;
-    background: rgb(29, 29, 29);
-    border: 1px solid #000;
-    margin: 10px auto 10px auto;
-    border-radius: 3px;
-    outline: none;
-
-    height: 55px;
-
-    padding: 8px 16px;
-
-    color: #fff;
-
-    font-size: 16px;
-
-    ::-webkit-input-placeholder {
-      color: ${shade(0.7, '#fff')};
-    }
-
-    :-moz-placeholder {
-      /* Firefox 18- */
-      color: ${shade(0.7, '#fff')};
-    }
-
-    ::-moz-placeholder {
-      /* Firefox 19+ */
-      color: ${shade(0.7, '#fff')};
-    }
-
-    :-ms-input-placeholder {
-      color: ${shade(0.7, '#fff')};
-    }
-  }
 `;
 
 export const CloseButton = styled.button`

@@ -61,41 +61,6 @@ export const Form = styled.form`
     margin: 24px 0px;
     text-align: center;
   }
-
-  input {
-    width: 100%;
-    background: rgb(29, 29, 29);
-    border: 1px solid #000;
-    margin: 10px auto 10px auto;
-    border-radius: 3px;
-    outline: none;
-
-    height: 55px;
-
-    padding: 8px 16px;
-
-    color: #fff;
-
-    font-size: 16px;
-
-    ::-webkit-input-placeholder {
-      color: ${shade(0.7, '#fff')};
-    }
-
-    :-moz-placeholder {
-      /* Firefox 18- */
-      color: ${shade(0.7, '#fff')};
-    }
-
-    ::-moz-placeholder {
-      /* Firefox 19+ */
-      color: ${shade(0.7, '#fff')};
-    }
-
-    :-ms-input-placeholder {
-      color: ${shade(0.7, '#fff')};
-    }
-  }
 `;
 
 export const CloseButton = styled.button`
@@ -134,20 +99,26 @@ export const CheckBoxesDiv = styled.div`
     align-items: center;
 
     color: #d9d9d9;
-  }
 
-  input[type='checkbox'] {
-    cursor: pointer;
-    width: 19px;
-    height: 19px;
-    border: 1px solid #514e50;
-    border-radius: 4px;
-    background-color: #000;
-    transition: all 0.2s;
-  }
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  div span {
-    margin-left: 10px;
+    input[type='checkbox'] {
+      cursor: pointer;
+      width: 19px;
+      height: 19px;
+      border: 1px solid #514e50;
+      border-radius: 4px;
+      background-color: #000;
+      transition: all 0.2s;
+    }
+
+    span {
+      margin-left: 10px;
+    }
   }
 
   a {
@@ -156,6 +127,12 @@ export const CheckBoxesDiv = styled.div`
     color: #d9d9d9;
     font-size: 16px;
     font-weight: 400;
+
+    transition: color 0.2s;
+
+    &:hover {
+      color: ${shade(0.2, '#d9d9d9')};
+    }
   }
 `;
 
