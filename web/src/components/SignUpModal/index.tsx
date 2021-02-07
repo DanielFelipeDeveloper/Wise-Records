@@ -3,8 +3,11 @@ import React, { useCallback, useRef } from 'react';
 import { FiFacebook, FiLock, FiMail, FiUser } from 'react-icons/fi';
 import { MdClose } from 'react-icons/md';
 import { AiFillGoogleCircle } from 'react-icons/ai';
-
+import * as Yup from 'yup';
 import { Form } from '@unform/web';
+import { FormHandles } from '@unform/core';
+
+import getValidationErrors from '../../utils/getValidationErrors';
 
 import {
   Modal,
@@ -24,6 +27,7 @@ interface ModalProps {
 
 const SignUpModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
   const overlayRef = useRef(null);
+  const formRef = useRef<FormHandles>(null);
 
   const handleOverlayClick = useCallback(
     (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -34,8 +38,24 @@ const SignUpModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
     [onClose],
   );
 
-  const handleSubmit = useCallback((data: object) => {
-    console.log(data); //eslint-disable-line
+  const handleSubmit = useCallback(async (data: object) => {
+    try {
+      formRef.current?.setErrors({});
+
+      const schema = Yup.object().shape({
+        name: Yup.string().required('Nome obrigatório'),
+        email: Yup.string().required().email('Digite um e-mail válido'),
+        password: Yup.string().min(6, 'Senha precisa ter no mínimo 6 digitos'),
+      });
+
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+    } catch (err) {
+      const errors = getValidationErrors(err);
+
+      formRef.current?.setErrors(errors);
+    }
   }, []);
 
   return isOpen ? (
@@ -46,7 +66,7 @@ const SignUpModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
             <MdClose color="#fff" fontSize={17} onClick={onClose} />
           </CloseButton>
           <h1>Cadastrar Conta</h1>
-          <Form onSubmit={handleSubmit}>
+          <Form ref={formRef} onSubmit={handleSubmit}>
             <Input name="name" icon={FiUser} placeholder="Nome de usuário" />
             <Input name="email" icon={FiMail} placeholder="Email" />
             <Input

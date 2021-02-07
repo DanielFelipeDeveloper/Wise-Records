@@ -8,6 +8,7 @@ import React, {
 import { IconBaseProps } from 'react-icons';
 import { useField } from '@unform/core';
 
+import { spawn } from 'child_process';
 import { Content, Container } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -79,6 +80,7 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
           />
         </Container>
         {inputError}
+        {error && <span>{error}</span>}
       </Content>
     </>
   );
