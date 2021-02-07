@@ -4,11 +4,12 @@ import { FiFacebook, FiLock, FiUser } from 'react-icons/fi';
 import { MdClose } from 'react-icons/md';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 
+import { Form } from '@unform/web';
+
 import {
   Modal,
   ModalOverlay,
   ModalContainer,
-  Form,
   CheckBoxesDiv,
   Button,
   ContentBreakDiv,
@@ -31,6 +32,10 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
     }
   };
 
+  const handleSubmit = (data: object) => {
+    console.log(data);
+  };
+
   return isOpen ? (
     <Modal>
       <ModalOverlay ref={overlayRef} onClick={handleOverlayClick}>
@@ -39,7 +44,7 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
             <MdClose color="#fff" fontSize={17} onClick={onClose} />
           </CloseButton>
           <h1>Login</h1>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Input
               name="name"
               icon={FiUser}

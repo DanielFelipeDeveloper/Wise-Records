@@ -50,16 +50,16 @@ export const ModalContainer = styled.div`
 
     font-weight: 900;
   }
-`;
 
-export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
-  p {
-    margin: 24px 0px;
-    text-align: center;
+    p {
+      margin: 24px 0px;
+      text-align: center;
+    }
   }
 `;
 

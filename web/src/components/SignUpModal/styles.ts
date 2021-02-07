@@ -50,29 +50,29 @@ export const ModalContainer = styled.div`
 
     font-weight: 900;
   }
-`;
 
-export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
-  p {
-    margin: 24px 0px;
-    text-align: center;
-  }
+    p {
+      margin: 24px 0px;
+      text-align: center;
+    }
 
-  p.terms {
-    margin: 0px 0px 10px;
-    text-align: left;
-    color: #d9d9d9;
-    font-size: 14px;
-  }
+    p.terms {
+      margin: 0px 0px 10px;
+      text-align: left;
+      color: #d9d9d9;
+      font-size: 14px;
+    }
 
-  p.terms a {
-    margin-left: 5px;
-    color: #815cff;
-    text-decoration: none;
+    p.terms a {
+      margin-left: 5px;
+      color: #815cff;
+      text-decoration: none;
+    }
   }
 `;
 
