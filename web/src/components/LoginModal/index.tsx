@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 
 import { FiFacebook, FiLock, FiUser } from 'react-icons/fi';
 import { MdClose } from 'react-icons/md';
@@ -26,15 +26,18 @@ interface ModalProps {
 const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
   const overlayRef = useRef(null);
 
-  const handleOverlayClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    if (e.target === overlayRef.current) {
-      onClose();
-    }
-  };
+  const handleOverlayClick = useCallback(
+    (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+      if (e.target === overlayRef.current) {
+        onClose();
+      }
+    },
+    [onClose],
+  );
 
-  const handleSubmit = (data: object) => {
-    console.log(data);
-  };
+  const handleSubmit = useCallback((data: object) => {
+    console.log(data); //eslint-disable-line
+  }, []);
 
   return isOpen ? (
     <Modal>
@@ -45,11 +48,7 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
           </CloseButton>
           <h1>Login</h1>
           <Form onSubmit={handleSubmit}>
-            <Input
-              name="name"
-              icon={FiUser}
-              placeholder="Nome de usuário ou Email"
-            />
+            <Input name="email" icon={FiUser} placeholder="Email" />
             <Input
               name="password"
               icon={FiLock}
