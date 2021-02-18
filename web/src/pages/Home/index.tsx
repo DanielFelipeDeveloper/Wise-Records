@@ -6,27 +6,29 @@ import FooterPlayer from '../../components/FooterPlayer';
 
 import { Cards, Title } from './styles';
 
-const Home: React.FC = () => (
-  <>
-    <Header />
+const Home: React.FC = () => {
+  return (
+    <>
+      <Header />
 
-    <Title>
-      <h2>Beats</h2>
-    </Title>
+      <Title>
+        <h2>Beats</h2>
+      </Title>
 
-    <Cards>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-    </Cards>
+      <Cards>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </Cards>
 
-    <FooterPlayer />
-  </>
-);
+      <FooterPlayer />
+    </>
+  );
+};
 
 export default Home;

@@ -3,6 +3,7 @@ import multer from 'multer';
 import uploadConfig from '../config/upload';
 
 import CreateBeatService from '../services/CreateBeatService';
+import ListBeatsService from '../services/ListBeatsService';
 
 import ensureAdminAuthenticated from '../middlewares/ensureAdminAuthenticated';
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
@@ -10,6 +11,18 @@ import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 const upload = multer(uploadConfig);
 
 const beatsRouter = Router();
+
+beatsRouter.get('/', async (request, response) => {
+  try {
+    const listBeats = new ListBeatsService();
+
+    const beats = await listBeats.execute();
+
+    return response.status(200).json(beats);
+  } catch (err) {
+    return response.status(400).json({ error: err.message });
+  }
+});
 
 beatsRouter.post(
   '/',
