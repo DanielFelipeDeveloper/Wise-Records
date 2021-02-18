@@ -22,7 +22,9 @@
     "no-unused-expressions":"off",
     "class-methods-use-this": "off",
     "camelcase": "off",
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {
+      "endOfLine": "auto"
+    }],
     "import/extensions": [
       "error",
       "ignorePackages",
