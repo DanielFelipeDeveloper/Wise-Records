@@ -31,18 +31,12 @@ const Card: React.FC<Beats> = ({ image, name, style, bpm, price }: Beats) => {
           <div>
             <span>{name}</span>
             <p>{style}</p>
-            <p>
-              {bpm}
-              BPM
-            </p>
+            <p>{`${bpm} BPM`}</p>
           </div>
           <div>
             <button type="button">
               <FaShoppingCart color="#fff" fontSize={16} />
-              <span>
-                R$
-                {price}
-              </span>
+              <span>{`R$ ${price}.00`}</span>
             </button>
           </div>
         </Description>
