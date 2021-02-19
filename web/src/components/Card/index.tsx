@@ -5,37 +5,50 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 import { DivCard, CardImage, BtnPlay, Description } from './styles';
 
-const Card: React.FC = () => (
-  <>
-    <DivCard>
-      <CardImage>
-        <img
-          src="https://cdn.airbit.com/artwork/2f20a1eba7d27ae74f531de136956368@300x.jpg"
-          alt="cardImage"
-        />
+interface Beats {
+  image: string;
+  name: string;
+  style: string;
+  bpm: string;
+  price: number;
+}
 
-        <BtnPlay>
-          <button type="button">
-            <ImPlay3 fontSize={25} color="#fff" />
-          </button>
-        </BtnPlay>
-      </CardImage>
+const Card: React.FC<Beats> = ({ image, name, style, bpm, price }: Beats) => {
+  return (
+    <>
+      <DivCard>
+        <CardImage>
+          <img src={`http://localhost:3333/files/${image}`} alt="cardImage" />
 
-      <Description>
-        <div>
-          <span>Nome do Beat</span>
-          <p>Trap</p>
-          <p>140 BPM</p>
-        </div>
-        <div>
-          <button type="button">
-            <FaShoppingCart color="#fff" fontSize={16} />
-            <span>R$ 80.00</span>
-          </button>
-        </div>
-      </Description>
-    </DivCard>
-  </>
-);
+          <BtnPlay>
+            <button type="button">
+              <ImPlay3 fontSize={25} color="#fff" />
+            </button>
+          </BtnPlay>
+        </CardImage>
+
+        <Description>
+          <div>
+            <span>{name}</span>
+            <p>{style}</p>
+            <p>
+              {bpm}
+              BPM
+            </p>
+          </div>
+          <div>
+            <button type="button">
+              <FaShoppingCart color="#fff" fontSize={16} />
+              <span>
+                R$
+                {price}
+              </span>
+            </button>
+          </div>
+        </Description>
+      </DivCard>
+    </>
+  );
+};
 
 export default Card;

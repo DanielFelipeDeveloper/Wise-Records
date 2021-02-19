@@ -9,8 +9,8 @@ import api from '../../services/api';
 import { Cards, Title } from './styles';
 
 interface Beats {
-  image: string;
   name: string;
+  image: string;
   style: string;
   bpm: string;
   price: number;
@@ -33,8 +33,6 @@ const Home: React.FC = () => {
     getBeats();
   }, []);
 
-  console.log(beats);
-
   return (
     <>
       <Header />
@@ -44,14 +42,15 @@ const Home: React.FC = () => {
       </Title>
 
       <Cards>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {beats?.map((beat) => (
+          <Card
+            name={beat.name}
+            image={beat.image}
+            style={beat.style}
+            bpm={beat.bpm}
+            price={beat.price}
+          />
+        ))}
       </Cards>
 
       <FooterPlayer />

@@ -3,9 +3,11 @@ import crypto from 'crypto';
 import multer from 'multer';
 
 const tmpAvatarFolder = path.resolve(__dirname, '..', '..', 'tmp', 'avatar');
+const tmpBeatFolder = path.resolve(__dirname, '..', '..', 'tmp', 'image');
 
 export default {
   directory: tmpAvatarFolder,
+  imageBeatDirectory: tmpBeatFolder,
 
   storage: multer.diskStorage({
     destination: (request, file, callback) => {
