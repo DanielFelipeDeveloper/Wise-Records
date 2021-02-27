@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { AudioHTMLAttributes, useRef } from 'react';
 
 import { BiSkipPrevious, BiSkipNext } from 'react-icons/bi';
 import { FaPlay, FaShoppingCart } from 'react-icons/fa';
@@ -41,6 +41,10 @@ const FooterPlayer: React.FC = () => {
               <BiSkipPrevious fontSize={30} />
               <span>
                 <FaPlay fontSize={18} />
+                <audio
+                  controls
+                  src="http://localhost:3333/audio/7e6e3085db278752f94c-16-10 dr.wav"
+                />
               </span>
               <BiSkipNext fontSize={30} />
             </div>

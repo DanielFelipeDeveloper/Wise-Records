@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 
 import { FaShoppingCart, FaUserAlt } from 'react-icons/fa';
 import { HiMenu } from 'react-icons/hi';
-import { LinkAndMenu, HeaderContent, Items, Logo } from './styles';
 
 import LoginModal from '../LoginModal';
 import SignUpModal from '../SignUpModal';
+
+import logo from '../../assets/logo.png';
+
+import { LinkAndMenu, HeaderContent, Items } from './styles';
 
 const Header: React.FC = () => {
   const [showLoginModal, setshowLoginModal] = useState<boolean>(false);
@@ -25,7 +28,9 @@ const Header: React.FC = () => {
         <header>
           <LinkAndMenu>
             <HiMenu fontSize={36} />
-            <Logo href="/">D.Wise Records</Logo>
+            <a href="/">
+              <img src={logo} alt="logo" />
+            </a>
           </LinkAndMenu>
 
           <Items displayHidden>

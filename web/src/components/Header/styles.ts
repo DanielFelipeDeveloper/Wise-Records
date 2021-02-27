@@ -48,16 +48,16 @@ export const LinkAndMenu = styled.div`
       }
     }
   }
-`;
 
-export const Logo = styled.a`
-  font-size: 24px;
-  font-family: 'Metal Mania', cursive;
-  text-decoration: none;
-  color: #fff;
+  a img {
+    padding-top: 20px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 
-  @media (max-width: 575px) {
-    margin-left: 10px;
+    @media (max-width: 575px) {
+      margin-left: 10px;
+    }
   }
 `;
 

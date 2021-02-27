@@ -19,14 +19,12 @@ interface Beats {
 const Home: React.FC = () => {
   const [beats, setBeats] = useState<Beats[]>();
 
-  const getBeats = async () => {
-    try {
-      const response = await api.get('/beats');
+  console.log(beats);
 
-      setBeats(response.data);
-    } catch (err) {
-      console.log(err);
-    }
+  const getBeats = async () => {
+    const response = await api.get('/beats');
+
+    setBeats(response.data);
   };
 
   useEffect(() => {

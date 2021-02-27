@@ -11,6 +11,7 @@ const app = express();
 
 app.use(cors());
 app.use('/files', express.static(upload.imageBeatDirectory));
+app.use('/audio', express.static(upload.audioBeatDirectory));
 app.use(express.json());
 app.use(routes);
 
