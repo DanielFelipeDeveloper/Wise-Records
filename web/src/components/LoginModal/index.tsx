@@ -39,7 +39,7 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
     [onClose],
   );
 
-  const handleSubmit = useCallback(async (data: object) => {
+  const handleSubmit = useCallback(async (data) => {
     try {
       formRef.current?.setErrors({});
 

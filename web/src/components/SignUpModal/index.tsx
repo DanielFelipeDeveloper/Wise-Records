@@ -1,6 +1,8 @@
 import React, { useCallback, useRef } from 'react';
 
-import { FiFacebook, FiLock, FiMail, FiUser } from 'react-icons/fi';
+import {
+  FiFacebook, FiLock, FiMail, FiUser,
+} from 'react-icons/fi';
 import { MdClose } from 'react-icons/md';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import * as Yup from 'yup';
@@ -38,7 +40,7 @@ const SignUpModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
     [onClose],
   );
 
-  const handleSubmit = useCallback(async (data: object) => {
+  const handleSubmit = useCallback(async (data) => {
     try {
       formRef.current?.setErrors({});
 

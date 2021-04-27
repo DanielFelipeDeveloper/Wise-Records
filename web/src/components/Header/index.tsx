@@ -6,8 +6,6 @@ import { HiMenu } from 'react-icons/hi';
 import LoginModal from '../LoginModal';
 import SignUpModal from '../SignUpModal';
 
-import logo from '../../assets/logo.png';
-
 import { LinkAndMenu, HeaderContent, Items } from './styles';
 
 const Header: React.FC = () => {
@@ -29,7 +27,7 @@ const Header: React.FC = () => {
           <LinkAndMenu>
             <HiMenu fontSize={36} />
             <a href="/">
-              <img src={logo} alt="logo" />
+              <img src="/logo.png" alt="logo" />
             </a>
           </LinkAndMenu>
 

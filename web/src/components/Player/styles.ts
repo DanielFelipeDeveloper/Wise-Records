@@ -6,9 +6,11 @@ export const PlayerContainer = styled.div`
   left: 0;
   bottom: 0;
 
-  padding: 5px 20px 20px;
+  padding: 0.3125rem 1.25rem 1.25rem;
   width: 100%;
-  min-height: 110px;
+  height: 100%;
+  min-height: 6.875rem;
+  max-height: 6.875rem;
 
   display: flex;
   align-items: center;
@@ -19,8 +21,9 @@ export const PlayerContainer = styled.div`
   background: #0d0d0d;
 
   @media (min-width: 900px) {
-    min-height: 95px;
-    max-height: 95px;
+    padding: 1rem 1.25rem 1.25rem;
+    min-height: 5.9375rem;
+    max-height: 5.9375rem;
   }
 
   .progress-wrapper.mobile {
@@ -28,7 +31,7 @@ export const PlayerContainer = styled.div`
 
     @media (max-width: 900px) {
       display: flex;
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
     }
   }
 
@@ -36,26 +39,28 @@ export const PlayerContainer = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.8rem;
 
     span {
+      display: inline-block;
+      text-align: center;
       color: #ababab;
-      font-size: 13px;
+      font-size: 0.8125rem;
       font-weight: 400;
     }
 
-    input[type='range'] {
-      width: 100%;
-      margin: 0 15px;
+    .slider {
+      flex: 1;
     }
+
     @media (max-width: 900px) {
       display: none;
     }
   }
 `;
 
-export const Player = styled.div`
-  margin-top: 10px;
+export const PlayerContent = styled.div`
+  margin-top: 0,625rem;
   width: 100%;
 
   .player-bottom {
@@ -65,7 +70,7 @@ export const Player = styled.div`
   }
 
   .track-info {
-    margin-top: 5px;
+    margin-top: 0,3125rem;
     display: flex;
     align-items: center;
 
@@ -75,15 +80,15 @@ export const Player = styled.div`
       align-items: center;
 
       img {
-        width: 40px;
+        width: 2.5rem;
         object-fit: cover;
-        border-radius: 5px;
-        margin-right: 10px;
+        border-radius: 0.3125rem;
+        margin-right: 0.625rem;
       }
 
       span {
         color: #c1b9ff;
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: 500;
         text-transform: uppercase;
       }
@@ -92,19 +97,10 @@ export const Player = styled.div`
         color: #6900ff;
         text-transform: uppercase;
         font-weight: 500;
-        font-size: 15px;
+        font-size: 0.9375rem;
 
         @media (max-width: 900px) {
-          position: absolute;
-          left: 47.6%;
-          bottom: 68px;
-          transform: translateX(-50%);
-          max-width: 100%;
-        }
-
-        @media (max-width: 350px) {
-          width: 100%;
-          left: 77%;
+          display: none;
         }
       }
     }
@@ -113,7 +109,7 @@ export const Player = styled.div`
       min-width: 20%;
 
       .img-and-description img {
-        width: 61px;
+        width: 3.8125rem;
       }
     }
   }
@@ -123,18 +119,17 @@ export const Player = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
 
       svg {
         margin: 5px;
         cursor: pointer;
         color: #fff;
         transition: 0.2s;
-
         &:hover {
           color: ${shade(0.2, '#fff')};
         }
       }
-
       span {
         cursor: pointer;
         border: 2px solid #6900ff;
@@ -143,24 +138,38 @@ export const Player = styled.div`
         height: 39.85px;
         position: relative;
         transition: 0.2s;
-
         &:hover {
           border-color: ${shade(0.1, '#6900ff')};
         }
       }
-
       span svg {
         cursor: pointer;
         position: absolute;
         top: 12%;
         left: 16%;
-
         color: #fff;
         transition: 0.2s;
-
         &:hover {
           color: ${shade(0.1, '#fff')};
         }
+      }
+    }
+
+    p {
+      display: none;
+      color: #6900ff;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 0.9375rem;
+
+      @media (max-width: 900px) {
+        position: absolute;
+        min-width: 119.85px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        margin: 0 auto;
+        top: 16.5%;
       }
     }
   }
@@ -176,16 +185,16 @@ export const Player = styled.div`
       align-items: center;
       justify-content: center;
 
-      height: 32.8px;
+      height: 2.05rem;
 
-      padding-right: 18px;
-      padding-left: 6px;
+      padding-right: 1.125rem;
+      padding-left: 0.375rem;
 
-      border-radius: 3px;
+      border-radius: 0.1875rem;
 
       background: #6900ff;
 
-      margin: 10px;
+      margin: 0.625rem;
 
       transition: 0.2s;
 
@@ -196,7 +205,7 @@ export const Player = styled.div`
 
     a span {
       color: #fff;
-      font-size: 12px;
+      font-size: 0.75rem;
     }
 
     svg {
