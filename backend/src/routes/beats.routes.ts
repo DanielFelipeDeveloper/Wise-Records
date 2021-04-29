@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import multer from 'multer';
+import * as mm from 'music-metadata';
 import uploadConfig from '../config/upload';
 
 import CreateBeatService from '../services/CreateBeatService';
@@ -18,7 +19,18 @@ beatsRouter.get('/', async (request, response) => {
 
     const beats = await listBeats.execute();
 
-    return response.status(200).json(beats);
+    let beatsWithAudioDuration = [];
+
+    for (let beat of beats) {
+      const metadata = await mm.parseFile(`./tmp/audio/${beat.audio}`);
+      const beatData = {
+        ...beat,
+        audioDuration: metadata.format.duration,
+      };
+      beatsWithAudioDuration.push(beatData);
+    }
+
+    return response.status(200).json(beatsWithAudioDuration);
   } catch (err) {
     return response.status(400).json({ error: err.message });
   }

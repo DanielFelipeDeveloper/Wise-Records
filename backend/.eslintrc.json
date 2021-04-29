@@ -19,6 +19,10 @@
     "prettier"
   ],
   "rules": {
+    "no-await-in-loop": "off",
+    "no-restricted-syntax": "off",
+    "no-param-reassign": "off",
+    "prefer-const": "off",
     "no-unused-expressions":"off",
     "class-methods-use-this": "off",
     "camelcase": "off",
