@@ -17,6 +17,10 @@
     "rules": {
         "react/prop-types": "off",
         "react/jsx-props-no-spreading": "off",
-        "import/prefer-default-export": "off"
+        "import/prefer-default-export": "off",
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "object-curly-newline": "off",
+        "jsx-a11y/media-has-caption": "off"
     }
 }

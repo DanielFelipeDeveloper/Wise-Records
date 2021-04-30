@@ -42,8 +42,6 @@ export const PlayerContainer = styled.div`
     gap: 0.8rem;
 
     span {
-      display: inline-block;
-      text-align: center;
       color: #ababab;
       font-size: 0.8125rem;
       font-weight: 400;
@@ -71,6 +69,7 @@ export const PlayerContent = styled.div`
 
   .track-info {
     margin-top: 0,3125rem;
+    width: auto;
     display: flex;
     align-items: center;
 
@@ -80,7 +79,8 @@ export const PlayerContent = styled.div`
       align-items: center;
 
       img {
-        width: 2.5rem;
+        width: 3.75rem;
+        height: 3.75rem;
         object-fit: cover;
         border-radius: 0.3125rem;
         margin-right: 0.625rem;
@@ -89,14 +89,13 @@ export const PlayerContent = styled.div`
       span {
         color: #c1b9ff;
         font-size: 0.875rem;
-        font-weight: 500;
-        text-transform: uppercase;
+        font-weight: 600;
       }
 
       p {
         color: #6900ff;
-        text-transform: uppercase;
-        font-weight: 500;
+        text-transform: capitalize;
+        font-weight: 600;
         font-size: 0.9375rem;
 
         @media (max-width: 900px) {
@@ -121,9 +120,18 @@ export const PlayerContent = styled.div`
       align-items: center;
       position: relative;
 
+      button {
+        background: none;
+        border: 0;
+
+        &:disabled {
+          cursor: default;
+          opacity: 0.5;
+        }
+      }
+
       svg {
         margin: 5px;
-        cursor: pointer;
         color: #fff;
         transition: 0.2s;
         &:hover {
@@ -142,11 +150,17 @@ export const PlayerContent = styled.div`
           border-color: ${shade(0.1, '#6900ff')};
         }
       }
+
+      span button {
+        width: 0;
+        height: 0;
+        border: 0;
+      }
       span svg {
         cursor: pointer;
         position: absolute;
         top: 12%;
-        left: 16%;
+        left: 14%;
         color: #fff;
         transition: 0.2s;
         &:hover {
