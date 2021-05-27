@@ -239,3 +239,7 @@ export const PlayerContent = styled.div`
     }
   }
 `;
+
+export const Empty = styled.div`
+  display: inline-block;
+`;

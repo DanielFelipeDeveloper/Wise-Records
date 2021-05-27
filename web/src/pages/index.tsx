@@ -2,15 +2,13 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import { ImPause2, ImPlay3 } from 'react-icons/im';
-import { FaShoppingCart } from 'react-icons/fa';
-
 import Header from '../components/Header';
 import Player from '../components/Player';
+import Cards from '../components/Cards';
+
 import api from '../services/api';
 
-import { Cards, Title, DivCard, CardImage, BtnPlay, Description } from '../styles/home';
-import { usePlayer } from '../context/PlayerContext';
+import { CardsContainer, Title } from '../styles/home';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 
 type Beat = {
@@ -29,59 +27,25 @@ type HomeProps = {
   beats: Beat[];
 };
 
-const Home: React.FC<HomeProps> = ({ beats }) => {
-  const { playlist, togglePlay, isPlaying, currentBeatIndex } = usePlayer();
+const Home: React.FC<HomeProps> = ({ beats }) => (
+  <>
+    <Head>
+      <title>Wise Records</title>
+    </Head>
 
-  return (
-    <>
-      <Head>
-        <title>Wise Records</title>
-      </Head>
+    <Header />
 
-      <Header />
+    <Title>
+      <h2>Beats</h2>
+    </Title>
 
-      <Title>
-        <h2>Beats</h2>
-      </Title>
+    <CardsContainer>
+      <Cards beats={beats} />
+    </CardsContainer>
 
-      <Cards>
-        {beats.map((beat, index) => (
-          <DivCard key={beat.id}>
-            <CardImage>
-              <img src={beat.image} alt="cardImage" />
-
-              <BtnPlay onClick={isPlaying && currentBeatIndex === index ? togglePlay : null}>
-                <button type="button" onClick={() => playlist(beats, index)}>
-                  {
-                    isPlaying && currentBeatIndex === index
-                      ? <ImPause2 fontSize={24} color="#fff" />
-                      : <ImPlay3 fontSize={28} color="#fff" />
-                  }
-                </button>
-              </BtnPlay>
-            </CardImage>
-
-            <Description>
-              <div>
-                <span>{beat.name}</span>
-                <p>{beat.style}</p>
-                <p>{beat.bpm}</p>
-              </div>
-              <div>
-                <button type="button">
-                  <FaShoppingCart color="#fff" fontSize={16} />
-                  <span>{beat.price}</span>
-                </button>
-              </div>
-            </Description>
-          </DivCard>
-        ))}
-      </Cards>
-
-      <Player />
-    </>
-  );
-};
+    <Player />
+  </>
+);
 
 export default Home;
 
