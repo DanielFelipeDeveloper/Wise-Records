@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { FaShoppingCart, FaUserAlt } from 'react-icons/fa';
 import { HiMenu } from 'react-icons/hi';
+import { useModal } from '../../context/ModalContext';
 
 import LoginModal from '../LoginModal';
 import SignUpModal from '../SignUpModal';
@@ -9,16 +10,26 @@ import SignUpModal from '../SignUpModal';
 import { LinkAndMenu, HeaderContent, Items } from './styles';
 
 const Header: React.FC = () => {
-  const [showLoginModal, setshowLoginModal] = useState<boolean>(false);
-  const [showSignUpModal, setshowSignUpModal] = useState<boolean>(false);
+  const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
+  const [showSignUpModal, setShowSignUpModal] = useState<boolean>(false);
+
+  const { goToLoginModal, goToSignUpModal } = useModal();
 
   const toggleLoginModal = () => {
-    setshowLoginModal(!showLoginModal);
+    setShowLoginModal(!showLoginModal);
   };
 
   const toggleSignUpModal = () => {
-    setshowSignUpModal(!showSignUpModal);
+    setShowSignUpModal(!showSignUpModal);
   };
+
+  useEffect(() => {
+    if (goToLoginModal) {
+      setShowLoginModal(true);
+    } else if (goToSignUpModal) {
+      setShowSignUpModal(true);
+    }
+  }, [goToLoginModal, goToSignUpModal]);
 
   return (
     <>

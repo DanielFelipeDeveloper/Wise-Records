@@ -30,13 +30,15 @@ export const ModalContainer = styled.div`
   position: relative;
   top: 45px;
 
-  height: 90vh;
+  height: auto;
   overflow-y: auto;
 
-  max-width: 500px;
+  width: 500px;
   margin: 0 auto;
   background: #000;
-  padding: 1.5rem 2.5rem;
+  padding: 2rem 1.5rem;
+
+  border: 1px solid #191818;
 
   border-radius: 5px;
 
@@ -46,7 +48,7 @@ export const ModalContainer = styled.div`
     font-size: 26px;
     text-align: center;
 
-    padding: 15px 0px 30px;
+    padding: 15px 0px 30px 0px;
 
     font-weight: 900;
   }
@@ -139,11 +141,11 @@ export const CheckBoxesDiv = styled.div`
 export const Button = styled.button<{ smallerWidth?: boolean }>`
   width: ${(props) => (props.smallerWidth ? '192px' : '100%')};
 
-  margin: ${(props) =>
-    props.smallerWidth ? '0px auto 15px auto' : '10px auto 10px auto'};
+  margin: ${(props) => (props.smallerWidth ? '0px auto 15px auto' : '10px auto 10px auto')};
 
   padding: 16px 24px;
   font-size: 18px;
+  line-height: 1;
   font-weight: 700;
   color: #fff;
 

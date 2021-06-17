@@ -36,9 +36,11 @@ export const ModalContainer = styled.div`
   max-width: 500px;
   margin: 0 auto;
   background: #000;
-  padding: 1.5rem 2.5rem;
+  padding: 2rem 1.5rem;
 
   border-radius: 5px;
+
+  border: 1px solid #191818;
 
   color: #fff;
 
@@ -103,8 +105,7 @@ export const CloseButton = styled.button`
 export const Button = styled.button<{ smallerWidth?: boolean }>`
   width: ${(props) => (props.smallerWidth ? '192px' : '100%')};
 
-  margin: ${(props) =>
-    props.smallerWidth ? '0px auto 15px auto' : '10px auto 10px auto'};
+  margin: ${(props) => (props.smallerWidth ? '0px auto 15px auto' : '10px auto 10px auto')};
 
   padding: 16px 24px;
   font-size: 18px;

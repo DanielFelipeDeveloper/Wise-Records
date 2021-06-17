@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 
 import { FiFacebook, FiLock, FiUser } from 'react-icons/fi';
 import { MdClose } from 'react-icons/md';
@@ -7,6 +7,12 @@ import * as Yup from 'yup';
 
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
+
+import Input from '../Input';
+import getValidationErrors from '../../utils/getValidationErrors';
+import api from '../../services/api';
+
+import { useModal } from '../../context/ModalContext';
 
 import {
   Modal,
@@ -18,8 +24,6 @@ import {
   SocialButtonsDiv,
   CloseButton,
 } from './styles';
-import Input from '../Input';
-import getValidationErrors from '../../utils/getValidationErrors';
 
 interface ModalProps {
   isOpen: boolean;
@@ -29,6 +33,18 @@ interface ModalProps {
 const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
   const overlayRef = useRef(null);
   const formRef = useRef<FormHandles>(null);
+
+  const {
+    goToSignUpModal,
+    handleGoToSignUpModal,
+    handleGoToLoginModal,
+  } = useModal();
+
+  const handleClose = () => {
+    handleGoToSignUpModal(false);
+    handleGoToLoginModal(false);
+    onClose();
+  };
 
   const handleOverlayClick = useCallback(
     (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -43,6 +59,8 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
     try {
       formRef.current?.setErrors({});
 
+      const { email, password } = data;
+
       const schema = Yup.object().shape({
         email: Yup.string().required().email('Digite um e-mail válido'),
         password: Yup.string().min(6, 'Senha precisa ter no mínimo 6 digitos'),
@@ -51,6 +69,11 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
       await schema.validate(data, {
         abortEarly: false,
       });
+
+      const response = await api.post('/sessions', {
+        email,
+        password,
+      });
     } catch (err) {
       const errors = await getValidationErrors(err);
 
@@ -58,12 +81,19 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (goToSignUpModal) {
+      onClose();
+      handleGoToLoginModal(false);
+    }
+  }, [goToSignUpModal]);
+
   return isOpen ? (
     <Modal>
       <ModalOverlay ref={overlayRef} onClick={handleOverlayClick}>
         <ModalContainer>
           <CloseButton>
-            <MdClose color="#fff" fontSize={17} onClick={onClose} />
+            <MdClose color="#fff" fontSize={17} onClick={handleClose} />
           </CloseButton>
           <h1>Login</h1>
           <Form ref={formRef} onSubmit={handleSubmit}>
@@ -98,7 +128,7 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
               </a>
             </SocialButtonsDiv>
             <p>Novo por aqui?</p>
-            <Button smallerWidth>Cadastrar</Button>
+            <Button smallerWidth onClick={() => handleGoToSignUpModal(true)}>Cadastrar</Button>
           </Form>
         </ModalContainer>
       </ModalOverlay>

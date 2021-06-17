@@ -56,9 +56,13 @@ const Player: React.FC = () => {
       { beat ? (
         <PlayerContainer>
           <div className="progress-wrapper mobile">
-            <span>00:00</span>
+            <span>{convertDurationToTimeString(progress)}</span>
             <div className="slider">
               <Slider
+                max={beat.duration}
+                step={beat.duration / 100}
+                value={progress}
+                onChange={handleSeek}
                 trackStyle={{ backgroundColor: '#6900ff' }}
                 railStyle={{ backgroundColor: '#707070' }}
                 handleStyle={{ borderColor: '#6900ff', borderWidth: 4 }}

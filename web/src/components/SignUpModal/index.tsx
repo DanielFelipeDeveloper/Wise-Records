@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useEffect } from 'react';
 
 import {
   FiFacebook, FiLock, FiMail, FiUser,
@@ -8,8 +8,11 @@ import { AiFillGoogleCircle } from 'react-icons/ai';
 import * as Yup from 'yup';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
+import { useModal } from '../../context/ModalContext';
 
 import getValidationErrors from '../../utils/getValidationErrors';
+
+import Input from '../Input';
 
 import {
   Modal,
@@ -20,7 +23,6 @@ import {
   SocialButtonsDiv,
   CloseButton,
 } from './styles';
-import Input from '../Input';
 
 interface ModalProps {
   isOpen: boolean;
@@ -30,6 +32,14 @@ interface ModalProps {
 const SignUpModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
   const overlayRef = useRef(null);
   const formRef = useRef<FormHandles>(null);
+
+  const { goToLoginModal, handleGoToLoginModal, handleGoToSignUpModal } = useModal();
+
+  const handleClose = () => {
+    handleGoToSignUpModal(false);
+    handleGoToLoginModal(false);
+    onClose();
+  };
 
   const handleOverlayClick = useCallback(
     (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -60,12 +70,19 @@ const SignUpModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (goToLoginModal) {
+      onClose();
+      handleGoToSignUpModal(false);
+    }
+  }, [goToLoginModal]);
+
   return isOpen ? (
     <Modal>
       <ModalOverlay ref={overlayRef} onClick={handleOverlayClick}>
         <ModalContainer>
           <CloseButton>
-            <MdClose color="#fff" fontSize={17} onClick={onClose} />
+            <MdClose color="#fff" fontSize={17} onClick={handleClose} />
           </CloseButton>
           <h1>Cadastrar Conta</h1>
           <Form ref={formRef} onSubmit={handleSubmit}>
@@ -97,7 +114,7 @@ const SignUpModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
               </a>
             </SocialButtonsDiv>
             <p>Ja tem cadastro?</p>
-            <Button smallerWidth>Login</Button>
+            <Button smallerWidth onClick={() => handleGoToLoginModal(true)}>Login</Button>
           </Form>
         </ModalContainer>
       </ModalOverlay>
