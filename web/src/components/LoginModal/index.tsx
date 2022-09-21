@@ -24,6 +24,7 @@ import {
   SocialButtonsDiv,
   CloseButton,
 } from './styles';
+import { useAuth } from '../../context/AuthContext';
 
 interface ModalProps {
   isOpen: boolean;
@@ -33,6 +34,7 @@ interface ModalProps {
 const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
   const overlayRef = useRef(null);
   const formRef = useRef<FormHandles>(null);
+  const { signInGoogle } = useAuth();
 
   const {
     goToSignUpModal,
@@ -118,14 +120,14 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }: ModalProps) => {
               <h2>Ou faça login com</h2>
             </ContentBreakDiv>
             <SocialButtonsDiv>
-              <a href="/">
+              <div>
                 <FiFacebook />
                 <span>Facebook</span>
-              </a>
-              <a href="/">
+              </div>
+              <div onClick={signInGoogle}>
                 <AiFillGoogleCircle fontSize={22} />
                 <span>Google</span>
-              </a>
+              </div>
             </SocialButtonsDiv>
             <p>Novo por aqui?</p>
             <Button smallerWidth onClick={() => handleGoToSignUpModal(true)}>Cadastrar</Button>

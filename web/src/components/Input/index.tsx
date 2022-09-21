@@ -66,7 +66,7 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
         <Container
           isFilled={isFilled}
           isFocused={isFocused}
-          inputNoFilled={inputNoFilled}
+          inputNoFilled={inputNoFilled || !!error}
         >
           {Icon && <Icon size={20} />}
           <input

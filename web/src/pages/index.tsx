@@ -49,26 +49,54 @@ const Home: React.FC<HomeProps> = ({ beats }) => (
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await api.get('beats');
-  const baseURL = 'http://localhost:3333';
-
-  const beats = data.map((beat) => ({
-    id: beat.id,
-    image: `${baseURL}/files/${beat.image}`,
-    audio: `${baseURL}/audio/${beat.audio}`,
-    name: beat.name,
-    style: beat.style,
-    bpm: `${beat.bpm} BPM`,
-    price: `R$ ${beat.price}.00`,
-    duration: beat.audioDuration,
-    durationAsString: convertDurationToTimeString(Number(beat.audioDuration)),
-  }));
-
-  return {
-    props: {
-      beats,
-    },
-    revalidate: 60 * 60 * 8,
-  };
-};
+export const getStaticProps: GetStaticProps = async () => ({
+  props: {
+    beats: [
+      {
+        id: 1,
+        image: 'https://wallpaperaccess.com/full/5169124.png',
+        audio: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+        name: 'Psychedelic Beat',
+        style: 'Boombap',
+        bpm: '125 BPM',
+        price: 'R$ 99.00',
+        duration: 123121233,
+        durationAsString: '2:00',
+      },
+      {
+        id: 2,
+        image: 'https://m.media-amazon.com/images/I/218TsHfnmFL._UXNaN_FMjpg_QL85_.jpg',
+        audio: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+        name: 'Trap Beat',
+        style: 'Trap',
+        bpm: '130 BPM',
+        price: 'R$ 99.00',
+        duration: 123121233,
+        durationAsString: '2:00',
+      },
+      {
+        id: 2,
+        image: 'https://www.batidasdabanda.com/wp-content/uploads/2022/03/a3608993084_10.jpg',
+        audio: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+        name: 'Hard Beat',
+        style: 'Boombap',
+        bpm: '125 BPM',
+        price: 'R$ 99.00',
+        duration: 123121233,
+        durationAsString: '2:00',
+      },
+      {
+        id: 2,
+        image: 'https://w7.pngwing.com/pngs/385/938/png-transparent-rapper-hip-hop-music-art-drawing-beat-travis-scott-head-beat-dope.png',
+        audio: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+        name: 'Psychedelic Beat',
+        style: 'Boombap',
+        bpm: '125 BPM',
+        price: 'R$ 99.00',
+        duration: 123121233,
+        durationAsString: '2:00',
+      },
+    ],
+  },
+  revalidate: 60 * 60 * 8,
+});

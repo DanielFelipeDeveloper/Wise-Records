@@ -180,8 +180,8 @@ export const SocialButtonsDiv = styled.div`
   justify-content: center;
   align-items: center;
 
-  a {
-    text-decoration: none;
+  div {
+    cursor: pointer;
     color: #d9d9d9;
 
     font-weight: bold;
@@ -207,11 +207,11 @@ export const SocialButtonsDiv = styled.div`
     }
   }
 
-  a + a {
+  div + div {
     margin-left: 15px;
   }
 
-  a svg {
+  div svg {
     margin-right: 5px;
   }
 `;
